@@ -1,0 +1,54 @@
+    gitignore
+    # Arquivos gerados pelo IDE / Configurações locais
+    *.iml
+    *.ipr
+    *.iws
+    .idea/
+    local.properties
+    captures/
+    .externalNativeBuild/
+
+    # Arquivos de Build
+    .gradle/
+    build/
+    */build/
+    generated/
+    outputs/
+
+    # APKs
+    *.apk
+    *.ap_
+
+    # AABs (Android App Bundles)
+    *.aab
+
+    # Arquivos DEX
+    *.dex
+
+    # Arquivos de log do Android Studio e outros
+    *.log
+
+    # Configurações de execução (podem ser específicas do usuário)
+    # .idea/runConfigurations/ # Descomente se quiser ignorar
+
+    # Arquivos do Google Services - Geralmente você commita google-services.json
+    # se ele não contém segredos e é necessário para o build por outros.
+    # Se você o gerencia de outra forma ou ele contém segredos, adicione-o aqui.
+    # google-services.json
+
+    # Arquivos de keystore (NUNCA commitar chaves privadas)
+    *.jks
+    *.keystore
+
+    # Arquivos do Android Profiler
+    *.hprof
+    *.snapshot
+
+    # Cache do KSP (Kotlin Symbol Processing)
+    */kspCaches/
+    */tmp/ksp/
+
+    # Outros arquivos temporários ou de cache
+    *~
+    *.DS_Store # Para usuários de macOS
+    Thumbs.db # Para usuários de Windows
