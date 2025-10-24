@@ -8,16 +8,13 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-// import androidx.activity.viewModels // Para by viewModels() - Descomente se usar
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-// import androidx.compose.runtime.collectAsState // Descomente se precisar
-// import androidx.compose.runtime.getValue // Descomente se precisar
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel // Para viewModel()
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,8 +26,6 @@ import com.example.tarefas.ui.theme.TarefasTheme
 import com.example.tarefas.ui.screens.EditNoteScreen
 import com.example.tarefas.ui.screens.NoteListScreen
 import com.example.tarefas.ui.screens.TrashScreen
-import com.example.tarefas.ui.theme.DarkColorScheme
-import com.example.tarefas.ui.theme.LightColorScheme
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -111,42 +106,12 @@ fun AppPrincipalPreview() {
         override fun getNotaById(id: Int): StateFlow<NotaEntity?> =
             MutableStateFlow(null)
 
-        // DECISÃO AQUI:
-        // Se NotaViewModel.kt tem 'open fun upsertNotaComObjeto(nota: NotaEntity)', então use:
-        // override fun upsertNotaComObjeto(nota: NotaEntity) {}
-        // Se NotaViewModel.kt tem 'open fun upsertNota(nota: NotaEntity)' (e não upsertNotaComObjeto), então mantenha:
-        override fun upsertNotaComObjeto(nota: NotaEntity) {} // Verifique se isso corresponde ao NotaViewModel.kt
-
-        // Sobrescreva salvarNota se esta é a principal forma de salvar
-        override fun salvarNota(
-            id: Int,
-            titulo: String,
-            conteudo: String,
-            isPinned: Boolean,
-            attachments: List<String>,
-            colorHex: String?
-        ) {
-            Log.d("FakeNotaViewModel", "salvarNota chamada no fake: id=$id, titulo=$titulo")
-            // Você pode adicionar lógica aqui para modificar 'notasVisiveis' se quiser ver o efeito no preview
-        }
-
         override fun moverParaLixeira(nota: NotaEntity) {}
         override fun restaurarDaLixeira(nota: NotaEntity) {}
         override fun excluirPermanente(nota: NotaEntity) {}
         override fun togglePinNota(nota: NotaEntity) {}
         override fun onSearchQueryChanged(query: String) {}
         override fun updateNotaColor(notaId: Int, colorHex: String?) {}
-
-        // Assinatura corrigida para corresponder à de NotaViewModel.kt
-        // O segundo parâmetro agora é Uri, e o nome da função é 'adicionarAnexo'
-        override fun adicionarAnexo(notaId: Int, anexoUri: android.net.Uri) { // Note o android.net.Uri
-            Log.d("FakeNotaViewModel", "adicionarAnexo chamada no fake: notaId=$notaId, uri=$anexoUri")
-        }
-
-        // Nome e assinatura corrigidos para corresponder à de NotaViewModel.kt
-        override fun removerAnexo(notaId: Int, anexoPath: String) {
-            Log.d("FakeNotaViewModel", "removerAnexo chamada no fake: notaId=$notaId, path=$anexoPath")
-        }
     }
 
     val context = LocalContext.current

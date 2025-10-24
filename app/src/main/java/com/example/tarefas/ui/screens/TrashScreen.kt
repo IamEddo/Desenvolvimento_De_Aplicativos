@@ -17,9 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.tarefas.data.NotaEntity
 import com.example.tarefas.ui.NotaViewModel
-import kotlin.text.forEach
-import kotlin.text.format
-import kotlin.text.isNotEmpty
 import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)

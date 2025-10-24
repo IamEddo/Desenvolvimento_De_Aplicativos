@@ -1,4 +1,4 @@
-package com.example.tarefas.data // Ou o nome do seu pacote
+package com.example.tarefas.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

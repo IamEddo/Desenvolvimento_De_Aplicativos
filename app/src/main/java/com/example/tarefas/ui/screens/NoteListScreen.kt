@@ -1,6 +1,7 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.example.tarefas.ui.screens
+import com.example.tarefas.ui.NotaViewModel
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -25,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.tarefas.Routes
 import com.example.tarefas.data.NotaEntity
-import com.example.tarefas.ui.NotaViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
